@@ -23,7 +23,16 @@
 
 
 #include "stddef.h"
-#include <time.h>
+
+/**
+ * IF _time.h not found issue on AsyncWebServer
+ * ON C:\Users\georg\.platformio\packages\framework-arduinoespressif32\tools\sdk\include\newlib
+ * rename time.h to _time.h
+ * On C:\Development\Apps\Arduino\HomeAutomation\Thermostat\TFT_CONTROLLER\.pio\libdeps\wemos_d1_mini32\ESP Async WebServer\src\WebHandlerImpl.h
+ * rename time.h to _time.h
+ * Reason: Incompatibility with TimeLib.h (44)
+ */
+#include <_time.h>
 
 class AsyncStaticWebHandler: public AsyncWebHandler {
    using File = fs::File;
