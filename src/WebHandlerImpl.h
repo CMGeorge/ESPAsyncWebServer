@@ -32,7 +32,11 @@
  * rename time.h to _time.h
  * Reason: Incompatibility with TimeLib.h (44)
  */
+#ifdef ESP32
 #include <_time.h>
+#else
+#include <time.h>
+#endif
 
 class AsyncStaticWebHandler: public AsyncWebHandler {
    using File = fs::File;
